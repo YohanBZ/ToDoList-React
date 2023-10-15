@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { PencilSimpleLine, Trash } from '@phosphor-icons/react';
 import EditTask from '../Modals/EditTask';
 import ButtonIndex from '../Button/ButtonIndex';
+import {
+  Card,
+  CardBody,
+  CardLink,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from 'reactstrap';
 
-const Card = ({
+const Cards = ({
   taskObj,
   index,
   deleteTask,
@@ -48,57 +56,65 @@ const Card = ({
   };
 
   return (
-    <div className="card-wrapper mr-5">
-      <div
-        className="card-top"
-        style={{ backgroundColor: colors[index % 5].primaryColor }}
-      ></div>
-      <div
-        className="task-holder"
+    <Card
+      style={{
+        width: '17rem',
+      }}
+    >
+      <CardBody
         style={{
           textDecoration: taskObj.isCompleted ? 'line-through' : '',
           opacity: taskObj.isCompleted ? '0.2' : '',
+          borderTop: `3px solid ${colors[index % 5].primaryColor}`,
+          borderRadius: '6px',
         }}
       >
-        <span
-          className="card-header"
+        <CardTitle
+          tag="h5"
           style={{
             backgroundColor: colors[index % 5].secondaryColor,
             borderRadius: '10px',
+            padding: '5px',
           }}
         >
           {taskObj.Name}
-        </span>
-        <p>{taskObj.Description}</p>
-
-        <div style={{ position: 'absolute', right: '20px', bottom: '20px' }}>
-          <ButtonIndex
-            txt={'Completar'}
-            onClick={() => completedTodo(taskObj.id)}
-          />
-          <PencilSimpleLine
-            size={24}
-            weight="bold"
-            className=" m-1"
-            style={{ color: colors[index % 5].primaryColor, cursor: 'pointer' }}
-            onClick={() => setModal(true)}
-          />
-          <Trash
-            size={24}
-            weight="bold"
-            style={{ color: colors[index % 5].primaryColor, cursor: 'pointer' }}
-            onClick={handleDelete}
-          />
-        </div>
-      </div>
+        </CardTitle>
+        <CardText>{taskObj.Description}</CardText>
+      </CardBody>
+      <CardBody
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          justifyItems: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <ButtonIndex
+          txt={'Completar'}
+          onClick={() => completedTodo(taskObj.id)}
+        />
+        <PencilSimpleLine
+          size={24}
+          weight="bold"
+          className=" m-1"
+          style={{ color: colors[index % 5].primaryColor, cursor: 'pointer' }}
+          onClick={() => setModal(true)}
+        />
+        <Trash
+          size={24}
+          weight="bold"
+          style={{ color: colors[index % 5].primaryColor, cursor: 'pointer' }}
+          onClick={handleDelete}
+        />
+      </CardBody>
       <EditTask
         modal={modal}
         toggle={toggle}
         updateTask={updateTask}
         taskObj={taskObj}
       />
-    </div>
+    </Card>
   );
 };
 
-export default Card;
+export default Cards;

@@ -4,6 +4,7 @@ import Filter from '../components/Filter/Filter';
 import Header from '../components/Header/Header';
 import Card from '../components/Card/Card';
 import NavMain from '../components/NavMain/NavMain';
+import Cards from '../components/Card/Card';
 
 const TodoList = () => {
   const [modal, setModal] = useState(false);
@@ -101,7 +102,7 @@ const TodoList = () => {
                   : b.Name.localeCompare(a.Name),
               )
               .map((obj, index) => (
-                <Card
+                <Cards
                   key={index}
                   taskObj={obj}
                   index={index}

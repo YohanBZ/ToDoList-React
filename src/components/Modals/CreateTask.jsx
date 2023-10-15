@@ -47,7 +47,7 @@ const CreateTask = ({ modal, toggle, save }) => {
               <textarea
                 rows="5"
                 className="form-control"
-                maxLength="50"
+                maxLength="100"
                 name="description"
                 value={description}
                 onChange={handleChange}
