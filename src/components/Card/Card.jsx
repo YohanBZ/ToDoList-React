@@ -2,14 +2,7 @@ import React, { useState } from 'react';
 import { PencilSimpleLine, Trash } from '@phosphor-icons/react';
 import EditTask from '../Modals/EditTask';
 import ButtonIndex from '../Button/ButtonIndex';
-import {
-  Card,
-  CardBody,
-  CardLink,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-} from 'reactstrap';
+import { Card, CardBody, CardText, CardTitle } from 'reactstrap';
 
 const Cards = ({
   taskObj,
@@ -19,6 +12,7 @@ const Cards = ({
   completedTodo,
 }) => {
   const [modal, setModal] = useState(false);
+  const [concluded, setCloncluded] = useState(false);
 
   const colors = [
     {
@@ -45,6 +39,11 @@ const Cards = ({
 
   const toggle = () => {
     setModal(!modal);
+  };
+
+  const handleClik = () => {
+    completedTodo(taskObj.id);
+    setCloncluded(!concluded);
   };
 
   const updateTask = (obj) => {
@@ -90,8 +89,8 @@ const Cards = ({
         }}
       >
         <ButtonIndex
-          txt={'Completar'}
-          onClick={() => completedTodo(taskObj.id)}
+          txt={concluded ? 'incompleto' : 'Completar'}
+          onClick={handleClik}
         />
         <PencilSimpleLine
           size={24}
