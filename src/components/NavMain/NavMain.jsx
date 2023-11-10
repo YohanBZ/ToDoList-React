@@ -8,7 +8,7 @@ const NavMain = ({ setFilter, deletar, taskList }) => {
     <NavMainStyle>
       <SelectFilter setFilter={setFilter} />
       <p>Total de tarefas na lista ({taskList.length}) </p>
-      <ButtonIndex txt={'deletar'} onClick={deletar} />
+      <ButtonIndex txt={'Deletar tudo'} onClick={deletar} />
     </NavMainStyle>
   );
 };
