@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   background-color: #F6F7F8;
   align-content: flex-start;
-  padding : 30px 80px;
+  padding : 30px 70px;
   gap: 20px;
   overflow: auto;
 }
