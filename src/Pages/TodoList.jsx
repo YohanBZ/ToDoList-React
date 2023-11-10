@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import CreateTask from '../components/Modals/CreateTask';
 import Filter from '../components/Filter/Filter';
 import Header from '../components/Header/Header';
-import Card from '../components/Card/Card';
 import NavMain from '../components/NavMain/NavMain';
 import Cards from '../components/Card/Card';
 
@@ -14,6 +13,8 @@ const TodoList = () => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('Todos');
   const [sort, setSort] = useState('Asc');
+
+  const items = ['Todos', 'Completo', 'Incompleto'];
 
   useEffect(() => {
     let arr = localStorage.getItem('taskList');
@@ -77,11 +78,18 @@ const TodoList = () => {
         setSearch={setSearch}
       />
       <section className="sectionPrinpal">
-        <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
+        <Filter
+          filter={filter}
+          setFilter={setFilter}
+          setSort={setSort}
+          items={items}
+        />
         <div>
           <div className="task-container">
             <NavMain
+              value={filter}
               setFilter={setFilter}
+              items={items}
               deletar={deletar}
               taskList={taskList}
             />

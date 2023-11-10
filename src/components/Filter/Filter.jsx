@@ -2,25 +2,24 @@ import React, { useState } from 'react';
 import { FilterStyles, List, ListItem } from './FilterStyles';
 import ButtonIndex from '../Button/ButtonIndex';
 
-const Filter = ({ setFilter, setSort }) => {
-  const [activeItem, setActiveItem] = useState(0);
+const Filter = ({ filter, setFilter, setSort, items }) => {
+  const [activeItem, setActiveItem] = useState(filter);
 
-  const handleItemClick = (value, index) => {
-    setActiveItem(index);
-    setFilter(value);
+  const handleItemClick = (item) => {
+    setActiveItem(item);
+    setFilter(item);
   };
 
-  const items = ['Todos', 'Completo', 'Incompleto'];
   return (
     <FilterStyles>
       <h4>Filtrar:</h4>
       <div>
         <List>
-          {items.map((item, index) => (
+          {items.map((item) => (
             <ListItem
-              key={index}
-              className={activeItem === index ? 'active' : ''}
-              onClick={() => handleItemClick(item, index)}
+              key={item}
+              className={filter === item ? 'active' : ''}
+              onClick={() => handleItemClick(item)}
             >
               <a href="#">{item}</a>
             </ListItem>
