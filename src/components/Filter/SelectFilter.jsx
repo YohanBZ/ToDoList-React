@@ -2,7 +2,18 @@ import React from 'react';
 
 const SelectFilter = ({ value, setFilter, items }) => {
   return (
-    <select value={value} onChange={(e) => setFilter(e.target.value)}>
+    <select
+      style={{
+        width: '10rem',
+        padding: '0.3rem',
+        borderRadius: '6px',
+        background: '#654497',
+        border: 'none',
+        color: 'white',
+      }}
+      value={value}
+      onChange={(e) => setFilter(e.target.value)}
+    >
       <option value="" disabled>
         Filtrar
       </option>
@@ -11,9 +22,6 @@ const SelectFilter = ({ value, setFilter, items }) => {
           {option}
         </option>
       ))}
-      {/* <option value="Todos">Todas</option>
-      <option value="Completos">Completas</option>
-      <option value="Incomplete">Incompletas</option> */}
     </select>
   );
 };
