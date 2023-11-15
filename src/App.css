@@ -4,7 +4,7 @@
   width: calc(100vw - 250px);
   display: flex;
   flex-wrap: wrap;
-  background-color: #F6F7F8;
+  background-color: rgb(224, 219, 254);
   align-content: flex-start;
   padding : 30px 70px;
   gap: 20px;
