@@ -62,13 +62,12 @@ const TodoList = () => {
     });
     localStorage.setItem('taskList', JSON.stringify(updatedTasks));
     setTaskList(updatedTasks);
-    window.location.reload();
   };
 
   const deletar = () => {
     setTaskList([]);
   };
-
+  console.log(taskList);
   return (
     <>
       <Header

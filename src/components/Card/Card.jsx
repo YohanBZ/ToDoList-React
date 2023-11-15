@@ -12,7 +12,6 @@ const Cards = ({
   completedTodo,
 }) => {
   const [modal, setModal] = useState(false);
-  const [concluded, setCloncluded] = useState(false);
 
   const colors = [
     {
@@ -43,7 +42,6 @@ const Cards = ({
 
   const handleClik = () => {
     completedTodo(taskObj.id);
-    setCloncluded(!concluded);
   };
 
   const updateTask = (obj) => {
@@ -89,7 +87,7 @@ const Cards = ({
         }}
       >
         <ButtonIndex
-          txt={concluded ? 'incompleto' : 'Completar'}
+          txt={taskObj.isCompleted ? 'incompleto' : 'Completar'}
           onClick={handleClik}
         />
         <PencilSimpleLine
