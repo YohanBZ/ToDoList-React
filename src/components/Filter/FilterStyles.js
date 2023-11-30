@@ -27,6 +27,7 @@ export const ListItem = styled.li`
   cursor: pointer;
 
   &.active {
+    border-radius: 4px 0 0 4px;
     background-color: #3d475f;
     border-right: 3px solid #b6c4e4;
     color: white;
